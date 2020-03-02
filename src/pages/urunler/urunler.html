@@ -1,0 +1,118 @@
+<ion-header>
+<!-- This is the title of the page. -->
+  <ion-navbar>
+    <ion-title>Subway Application</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+    <!-- Subway Logo. -->
+    <div>
+        <img src="assets/img/subway-icon.jpg">
+    </div>
+
+    <div>
+        <!-- We use ngModel to switch between segments.-->
+        <ion-segment [(ngModel)]="menuler">
+        <!-- "Besin Degerleri" segment. When user clicked this button 'requestGet' function starts. It lists the all sandwich, salad, extras and their nutrition values as a list. -->
+            <ion-segment-button (click)="requestGet()" class="segments" value="besin">
+            Besin Degerleri
+            </ion-segment-button>
+        </ion-segment>
+    
+        <!-- We use ngModel to switch between segments.-->
+        <ion-segment [(ngModel)]="menuler">        
+            <!-- "Sandvicler" segment. When user clicked this button 'sandviclerGet' function starts. -->    
+            <ion-segment-button (click)="sandviclerGet()"class="segments" value="sandvicler">
+            Sandvicler
+            </ion-segment-button>   
+            <!-- "Salatalar" segment. When user clicked this button 'sandviclerGet' function starts. -->                  
+            <ion-segment-button (click)="salatalarGet()" class="segments" value="salatalar">
+            Salatalar
+            </ion-segment-button>       
+      </ion-segment>
+    </div>
+
+    <!-- In this part, we can switch between segments with ngSwitch. -->
+    <div [ngSwitch]="menuler">
+        <!-- If user selects 'sandvicler' segment. -->
+        <ion-list *ngSwitchCase='"sandvicler"'>       
+            <!-- All sandwich names and their images will be listed in that segment. -->      
+            <ng-container  *ngFor="let post of gets ; let i = index">
+                <!-- We take product names and images in .ts file with a loop. -->
+                <p class="product-text">{{post.urun_adi}}<p> 
+                <!-- Product images as buttons. When user clicked that button, "openModalSandvic" functions starts. Also we send the product index as parameter. -->  
+                <button (click)="openModalSandvic({charNum:i})">
+                    <!-- Product image. -->
+                    <img class="images" width="300px" [src]="post.gorsel">
+                </button>   
+            </ng-container> 
+        </ion-list>            
+        
+        <!-- If user selects 'salatalar' segment. -->
+        <ion-list *ngSwitchCase='"salatalar"'>  
+            <!-- All salad names and their images will be listed in that segment. -->             
+            <ng-container  *ngFor="let post of gets2 ; let i = index">
+                <!-- We take product names and images in .ts file with a loop. -->
+                <p class="product-text">{{post.s_urun_adi}}<p>   
+                <!-- Product images as buttons. When user clicked that button, "openModalSandvic" functions starts. Also we send the product index as parameter. -->  
+                <button (click)="openModalSalatalar({charNum:i})">
+                     <!-- Product image. -->
+                    <img class="images" width="300px" [src]="post.s_gorsel">                     
+                </button>                 
+            </ng-container> 
+        </ion-list>
+
+         <!-- If user selects 'besin değerleri' segment. -->
+        <ion-list *ngSwitchCase='"besin"'> 
+            <br>
+                <!-- 'SANDVICLER' used as a title. -->
+                <div class="label-text">---SANDVICLER---</div> 
+            <br>    
+            <!-- Sandwich nutrition values inside a loop. -->
+            <ng-container  *ngFor="let post of gets">
+                <p class="product-text">{{post.urun_adi}}<p>       
+                <ion-item>           
+                    <!-- These are the nutrition values. -->
+                    <p class="calories-text">Calories : {{post.calories}}</p>                        
+                    <p class="calories-text">Protein  : {{post.protein}} </p>
+                    <p class="calories-text">Carb     : {{post.carb}}</p>
+                    <p class="calories-text">Fat      : {{post.fat}}</p>
+                    <p class="calories-text">Potasium : {{post.pts}}</p><br>                     
+                </ion-item>
+            </ng-container> 
+            <br>
+                <!-- 'SALATALAR' used as a title. -->
+                <div class="label-text">---SALATALAR---</div>
+            <br>
+            <!-- Salad nutrition values inside a loop. -->
+            <ng-container  *ngFor="let post of gets2">
+                    <p class="product-text">{{post.s_urun_adi}}<p>       
+                <ion-item>    
+                     <!-- These are the nutrition values. -->   
+                    <p class="calories-text">Calories : {{post.s_calories}}</p>                            
+                    <p class="calories-text">Protein  : {{post.s_protein}} </p>
+                    <p class="calories-text">Carb     : {{post.s_carb}}</p>
+                    <p class="calories-text">Fat      : {{post.s_fat}}</p>
+                    <p class="calories-text">Potasium : {{post.s_pts}}</p><br>                    
+                </ion-item>
+            </ng-container> 
+            <br>
+                <!-- 'EKSTRALAR' used as a title. -->
+                <div class="label-text">---EKSTRALAR---</div>
+            <br>
+            <!-- Extras nutrition values inside a loop. -->
+            <ng-container  *ngFor="let post of gets3">
+                    <p class="product-text">{{post.e_urun_adi}}<p>       
+                <ion-item>      
+                    <!-- These are the nutrition values. -->  
+                    <p class="calories-text">Calories : {{post.e_calories}}</p>                            
+                    <p class="calories-text">Protein  : {{post.e_protein}} </p>
+                    <p class="calories-text">Carb     : {{post.e_carb}}</p>
+                    <p class="calories-text">Fat      : {{post.e_fat}}</p>
+                    <p class="calories-text">Potasium : {{post.e_pts}}</p><br>                    
+                </ion-item>
+            </ng-container> 
+        </ion-list>
+   </div>
+</ion-content>

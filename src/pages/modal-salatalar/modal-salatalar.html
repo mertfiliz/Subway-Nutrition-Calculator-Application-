@@ -1,0 +1,155 @@
+<ion-header>
+    <ion-toolbar>
+      <!-- Title of this page -->
+      <ion-title>Salata Detayları</ion-title>
+       <!-- The close button in left corner --> 
+      <ion-buttons start>       
+        <!-- When user cilcked that 'close' button 'dismiss()' function starts. -->
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+        <ion-item>  
+            <!-- The selected product name. -->  
+            <p class="product-text">{{character.name}}</p> 
+            <!-- The selected product image. -->   
+            <img class="images" width="300px" [src]="character.image">  
+        </ion-item>
+       
+        <ion-list>  
+            
+          <!-- 'VEGGIES' label. -->
+          <ion-label class="title-text-veggies">VEGGIES</ion-label>
+          <!-- In this part, i created 9 checkboxes for veggies, 13 checkboxes for extras.
+          The name of the veggies will be written inside of every checkbox.-->
+          <ion-item>
+            <!-- This is the 1. veggies name -->   
+            <ion-label>{{extra.veggies1}}</ion-label>
+            <!-- ngModel used for checking whether checkboxes is selected or not. 'updateVeggies()' function starts every time we change the selection -->
+            <ion-checkbox [(ngModel)]="veggies1_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 2. veggies name -->  
+            <ion-label>{{extra.veggies2}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies2_selected" color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 3. veggies name -->  
+            <ion-label>{{extra.veggies3}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies3_selected" color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 4. veggies name -->  
+            <ion-label>{{extra.veggies4}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies4_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 5. veggies name -->  
+            <ion-label>{{extra.veggies5}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies5_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 6. veggies name -->  
+            <ion-label>{{extra.veggies6}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies6_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 7. veggies name -->  
+            <ion-label>{{extra.veggies7}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies7_selected" color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 8. veggies name -->  
+            <ion-label>{{extra.veggies8}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies8_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 9. veggies name -->  
+            <ion-label>{{extra.veggies9}}</ion-label>
+            <ion-checkbox [(ngModel)]="veggies9_selected"  color="dark" checked="false"></ion-checkbox>
+          </ion-item>
+          <span></span>
+
+          <!-- 'EXTRAS & SAUCES' label. --> 
+          <ion-label class="title-text-sauces">EXTRAS & SAUCES</ion-label>
+          <!-- The name of the extras will be written inside of every checkbox.-->
+          <ion-item>
+            <!-- This is the 1. extras name --> 
+            <ion-label>{{extra.sauces1}}</ion-label>
+             <!-- ngModel used for checking whether checkboxes is selected or not. 'updateSauces()' function starts every time we change the selection -->
+            <ion-checkbox [(ngModel)]="sauces1_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 2. extras name --> 
+            <ion-label>{{extra.sauces2}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces2_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 3. extras name --> 
+            <ion-label>{{extra.sauces3}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces3_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 4. extras name --> 
+            <ion-label>{{extra.sauces4}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces4_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 5. extras name --> 
+            <ion-label>{{extra.sauces5}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces5_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <!-- This is the 6. extras name --> 
+            <ion-label>{{extra.sauces6}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces6_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+             <!-- This is the 7. extras name --> 
+            <ion-label>{{extra.sauces7}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces7_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+             <!-- This is the 8. extras name --> 
+            <ion-label>{{extra.sauces8}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces8_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+             <!-- This is the 9. extras name --> 
+            <ion-label>{{extra.sauces9}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces9_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+             <!-- This is the 10. extras name --> 
+            <ion-label>{{extra.sauces10}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces10_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>     
+           <ion-item>
+             <!-- This is the 11. extras name --> 
+            <ion-label>{{extra.sauces11}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces11_selected" color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+             <!-- This is the 12. extras name --> 
+            <ion-label>{{extra.sauces12}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces12_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>  
+           <ion-item>
+            <!-- This is the 13. extras name --> 
+            <ion-label>{{extra.sauces13}}</ion-label>
+            <ion-checkbox [(ngModel)]="sauces13_selected"  color="primary" checked="false"></ion-checkbox>
+          </ion-item>         
+          
+        </ion-list>
+        <!-- This is the calculation of total amount of nutritions button. When user clicked that button 'Calculate()' function starts. -->
+        <button (click)="Calculate()" block ion-button primary>Kalori Hesapla</button>  
+        
+        
+    </ion-list>
+  </ion-content>
