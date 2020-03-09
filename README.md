@@ -1,7 +1,7 @@
-# Subway-Nutrition-Calculation-Application-
+# Subway-Nutrition-Calculator-Application-
 2018
 
-Subway Nutrition Calculation Application (Cross Platform Mobile Application)
+Subway Nutrition Calculator Application (Cross Platform Mobile Application)
 
 This application provides user to calculate total nutrition 
 (calories, proteins, carbohydrates, fat, potassium) for given sandwiches, salads and extras. User can choose any item from the list and add the desired extra items to the selected sandwich or salad. When the user pressed the “Calculate” button, application shows the total amount of calories, proteins, carbohydrates, fats and potassium.
